@@ -183,13 +183,13 @@ const CustomCursor = () => {
       {/* Canvas for Glowing Particle Trail */}
       <canvas ref={canvasRef} className="fixed inset-0 pointer-events-none z-50" />
 
-      {/* Spring Follower Circle */}
+      {/* Spring Follower Circle
       <motion.div
         className={`fixed top-0 left-0 rounded-full border pointer-events-none z-50 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center transition-all duration-300 ${
           isHovered
             ? hoverType === 'magnetic'
               ? 'w-14 h-14 border-cyan-400 bg-cyan-400/5'
-              : 'w-10 h-10 border-white bg-white mix-blend-difference scale-125'
+              : 'w-10 h-10 border-white bg-transparent scale-125'
             : 'w-6 h-6 border-cyan-400/60 shadow-[0_0_20px_rgba(34,211,238,0.6)] bg-transparent'
         }`}
         style={{
@@ -201,7 +201,7 @@ const CustomCursor = () => {
         {isHovered && hoverType === 'magnetic' && (
           <span className="text-[9px] font-bold text-cyan-300 font-mono tracking-widest scale-75 animate-pulse uppercase">Pull</span>
         )}
-      </motion.div>
+      </motion.div> */}
 
       {/* Pinpoint Dot */}
       {!isHovered && (
