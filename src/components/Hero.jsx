@@ -153,36 +153,36 @@ const Hero = () => {
           <div className="absolute inset-0 pointer-events-none z-20">
             {/* React Badge */}
             <div className="tech-badge-1 absolute top-[10%] left-[-5%] px-3 py-1.5 rounded-xl bg-cyan-900/30 backdrop-blur-md border border-cyan-500/20 text-cyan-300 text-xs font-semibold flex items-center gap-1.5 shadow-lg shadow-cyan-950/20 pointer-events-auto cursor-pointer magnetic">
-              <Layout className="w-3.5 h-3.5 text-cyan-400" /> React.js
+              <Layout className="w-3.5 h-3.5 text-cyan-400 animate-pulse" /> React.js
             </div>
             
             {/* C++ Badge */}
             <div className="tech-badge-2 absolute bottom-[25%] left-[-10%] px-3 py-1.5 rounded-xl bg-violet-900/30 backdrop-blur-md border border-violet-500/20 text-violet-300 text-xs font-semibold flex items-center gap-1.5 shadow-lg shadow-violet-950/20 pointer-events-auto cursor-pointer magnetic">
-              <Cpu className="w-3.5 h-3.5 text-violet-400" /> C++
+              <Cpu className="w-3.5 h-3.5 text-violet-400 animate-pulse" /> C++
             </div>
 
             {/* SQL Badge */}
             <div className="tech-badge-3 absolute top-[45%] right-[-5%] px-3 py-1.5 rounded-xl bg-emerald-900/30 backdrop-blur-md border border-emerald-500/20 text-emerald-300 text-xs font-semibold flex items-center gap-1.5 shadow-lg shadow-emerald-950/20 pointer-events-auto cursor-pointer magnetic">
-              <Database className="w-3.5 h-3.5 text-emerald-400" /> MySQL
+              <Database className="w-3.5 h-3.5 text-emerald-400 animate-pulse" /> MySQL
             </div>
           </div>
 
           {/* Profile Card */}
           <motion.div
-            className="hero-reveal opacity-0 w-64 h-64 md:w-72 md:h-72 rounded-full relative group p-1.5"
+            className="hero-reveal opacity-0 w-72 h-72 md:w-80 md:h-80 rounded-[40px] relative group p-1.5"
             initial={{ scale: 0.9, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.6 }}
           >
             {/* Double spinning glowing border circles */}
-            <div className="absolute inset-0 rounded-full bg-gradient-to-r from-violet-500 via-purple-600 to-cyan-400 animate-spin-slow opacity-80" />
-            <div className="absolute inset-1 rounded-full bg-gradient-to-r from-cyan-400 via-indigo-600 to-violet-500 animate-spin-slow direction-reverse opacity-60 blur-sm" />
+           <div className="absolute inset-0 rounded-[40px] bg-gradient-to-r from-violet-500 via-purple-600 to-cyan-400 animate-spin-slow opacity-80" />
+            <div className="absolute inset-1 rounded-[39px] bg-gradient-to-r from-cyan-400 via-indigo-600 to-violet-500 animate-spin-slow direction-reverse opacity-60 blur-sm" />
             
             {/* Outer glass border shield */}
-            <div className="absolute inset-1.5 rounded-full bg-[#030303]" />
+            <div className="absolute inset-1.5 rounded-[38px] bg-[#030303]"/>
 
             {/* Profile Image container */}
-            <div className="absolute inset-3 rounded-full overflow-hidden border border-white/10 group-hover:scale-[1.02] transition-transform duration-500 ease-out shadow-2xl">
+            <div className="absolute inset-3 rounded-[36px] overflow-hidden border border-white/10 group-hover:scale-[1.02] transition-transform duration-500 ease-out shadow-2xl">
               <img 
                 src={profileImg} 
                 alt="Sumiran Chauhan avatar"

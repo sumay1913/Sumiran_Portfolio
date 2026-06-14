@@ -120,7 +120,7 @@ const BackgroundEffect = () => {
 
       {/* Layer 2: Glowing Blob 1 - Purple (Background Depth) */}
       <div
-        className="absolute w-[45vw] h-[45vw] rounded-full bg-violet-600/10 blur-[130px] transition-transform duration-[1500ms] ease-out animate-float"
+        className="absolute w-[45vw] h-[45vw] rounded-full bg-violet-600/30 blur-[180px] transition-transform duration-[1500ms] ease-out animate-float"
         style={{
           top: '-15%',
           left: '5%',
@@ -130,7 +130,7 @@ const BackgroundEffect = () => {
 
       {/* Layer 3: Glowing Blob 2 - Cyan (Midground Depth) */}
       <div
-        className="absolute w-[40vw] h-[40vw] rounded-full bg-cyan-500/10 blur-[110px] transition-transform duration-[1200ms] ease-out animate-float-delayed"
+        className="absolute w-[40vw] h-[40vw] rounded-full bg-cyan-500/30 blur-[160px] transition-transform duration-[1200ms] ease-out animate-float-delayed"
         style={{
           bottom: '5%',
           right: '2%',

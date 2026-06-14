@@ -14,7 +14,7 @@ const CustomCursor = () => {
   // Springs for outer ring
   const cursorX = useMotionValue(-100);
   const cursorY = useMotionValue(-100);
-  const springConfig = { damping: 25, stiffness: 220, mass: 0.4 };
+  const springConfig = { damping: 18, stiffness: 140, mass: 0.8 };
   const cursorXSpring = useSpring(cursorX, springConfig);
   const cursorYSpring = useSpring(cursorY, springConfig);
 
@@ -44,13 +44,13 @@ const CustomCursor = () => {
       constructor(x, y) {
         this.x = x;
         this.y = y;
-        this.size = Math.random() * 8 + 4; // size 4 to 12
+        this.size = Math.random() * 28 + 14; // size 4 to 12
         this.speedX = (Math.random() - 0.5) * 1.5;
         this.speedY = (Math.random() - 0.5) * 1.5;
-        this.opacity = 0.6;
+        this.opacity = 0.25;
         // Cyan and Violet glow colors
         this.color = Math.random() > 0.5 ? 'rgba(139, 92, 246, ' : 'rgba(34, 211, 238, ';
-        this.decay = Math.random() * 0.015 + 0.01;
+        this.decay = Math.random() * 0.008 + 0.004;
       }
       update() {
         this.x += this.speedX;
@@ -61,7 +61,7 @@ const CustomCursor = () => {
       draw() {
         ctx.save();
         ctx.globalAlpha = this.opacity;
-        ctx.shadowBlur = 10;
+        ctx.shadowBlur = 60;
         ctx.shadowColor = this.color.replace(', ', ')');
         ctx.fillStyle = this.color + this.opacity + ')';
         ctx.beginPath();

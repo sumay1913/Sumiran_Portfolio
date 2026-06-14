@@ -26,11 +26,11 @@ const ProjectCard = ({ project }) => {
     const y = e.clientY - box.top - box.height / 2;
     
     // Max 12 degrees 3D tilt
-    const rotateX = -(y / (box.height / 2)) * 12;
-    const rotateY = (x / (box.width / 2)) * 12;
+    const rotateX = -(y / (box.height / 2)) * 15;
+    const rotateY = (x / (box.width / 2)) * 15;
     
     setTiltStyle({
-      transform: `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.025, 1.025, 1.025)`,
+     transform: `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.05, 1.05, 1.05)`,
       transition: 'transform 0.05s ease-out',
     });
 
@@ -54,7 +54,7 @@ const ProjectCard = ({ project }) => {
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
       style={tiltStyle}
-      className="glass-card rounded-2xl border border-white/5 relative overflow-hidden group flex flex-col justify-between h-full cursor-pointer interactive-card"
+      className="glass-card rounded-2xl border border-white/5 relative overflow-hidden group flex flex-col justify-between h-full cursor-pointer interactive-card hover:scale-[1.03] hover:-translate-y-2 transition-all duration-500"
     >
       {/* Spotlight Dynamic Radial Mask */}
       {showSpotlight && (
