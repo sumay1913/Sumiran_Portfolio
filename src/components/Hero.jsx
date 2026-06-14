@@ -2,7 +2,7 @@ import React, { useEffect, useState, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { gsap } from 'gsap';
 import { ArrowRight, Download, Mail, Terminal, Cpu, Layout, Database } from 'lucide-react';
-import profileImg from '../assets/sumiran_profile.png';
+import profileImg from "/src/assets/sumiran_profile.png.png";
 
 const Hero = () => {
   const [textIndex, setTextIndex] = useState(0);
@@ -82,7 +82,7 @@ const Hero = () => {
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
             </span>
-            <span className="text-xs font-medium tracking-wide text-zinc-300 font-mono">Available for internships & projects</span>
+            <span className="text-xs font-medium tracking-wide text-zinc-300 font-mono">OPEN TO WORK</span>
           </div>
 
           {/* Subheading */}
@@ -183,11 +183,12 @@ const Hero = () => {
 
             {/* Profile Image container */}
             <div className="absolute inset-3 rounded-[36px] overflow-hidden border border-white/10 group-hover:scale-[1.02] transition-transform duration-500 ease-out shadow-2xl">
-              <img 
-                src={profileImg} 
-                alt="Sumiran Chauhan avatar"
-                className="w-full h-full object-cover scale-105 group-hover:scale-100 transition-transform duration-700 ease-out"
-              />
+              <img
+             
+  src={profileImg}
+  alt="Sumiran Chauhan avatar"
+  className="w-full h-full object-cover scale-105 group-hover:scale-100 transition-transform duration-700 ease-out"
+/>
             </div>
           </motion.div>
 

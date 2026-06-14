@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 
 const BackgroundEffect = () => {
+  const [mouse, setMouse] = useState({ x: 500, y: 300 });
   const canvasRef = useRef(null);
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const [scrollY, setScrollY] = useState(0);
@@ -17,6 +18,14 @@ const BackgroundEffect = () => {
     };
 
     window.addEventListener('mousemove', handleMouseMove);
+    const handleMove = (e) => {
+  setMouse({
+    x: e.clientX,
+    y: e.clientY,
+  });
+};
+
+window.addEventListener("mousemove", handleMove);
     window.addEventListener('scroll', handleScroll);
 
     // Canvas particle network
@@ -96,6 +105,7 @@ const BackgroundEffect = () => {
     drawNetwork();
 
     return () => {
+      window.removeEventListener("mousemove", handleMove);
       window.removeEventListener('mousemove', handleMouseMove);
       window.removeEventListener('scroll', handleScroll);
       window.removeEventListener('resize', resizeCanvas);
@@ -147,7 +157,8 @@ const BackgroundEffect = () => {
           transform: `translate(${mousePos.x * -25}px, ${mousePos.y * 25 + scrollY * 0.06}px) translate(-50%, -50%)`,
         }}
       />
-    </div>
+       </div>
+    
   );
 };
 

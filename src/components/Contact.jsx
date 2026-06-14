@@ -29,24 +29,46 @@ const Contact = () => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
+const handleSubmit = async (e) => {
+  e.preventDefault();
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (!formData.name || !formData.email || !formData.message) {
-      setStatus('error');
-      setTimeout(() => setStatus('idle'), 3000);
-      return;
-    }
+  if (!formData.name || !formData.email || !formData.message) {
+    setStatus("error");
+    setTimeout(() => setStatus("idle"), 3000);
+    return;
+  }
 
-    setStatus('sending');
-    
-    // Simulate API request dispatch
-    setTimeout(() => {
-      setStatus('success');
-      setFormData({ name: '', email: '', subject: '', message: '' });
-      setTimeout(() => setStatus('idle'), 4000);
-    }, 1500);
-  };
+  setStatus("sending");
+
+  const form = new FormData();
+
+  form.append("access_key", "231337d7-dbfd-4ab8-82de-7cef66f4e32e" );
+  form.append("name", formData.name);
+  form.append("email", formData.email);
+  form.append("subject", formData.subject);
+  form.append("message", formData.message);
+
+  const response = await fetch("https://api.web3forms.com/submit", {
+    method: "POST",
+    body: form,
+  });
+
+  const data = await response.json();
+
+  if (data.success) {
+    setStatus("success");
+    setFormData({
+      name: "",
+      email: "",
+      subject: "",
+      message: "",
+    });
+  } else {
+    setStatus("error");
+  }
+
+  setTimeout(() => setStatus("idle"), 4000);
+};
 
   const contactInfo = [
     {
@@ -58,14 +80,14 @@ const Contact = () => {
     {
       icon: <LinkedinIcon className="w-5 h-5 text-blue-400" />,
       label: 'LinkedIn',
-      value: 'mayank-rajput-b77689277',
-      href: 'https://www.linkedin.com/in/mayank-rajput-b77689277/',
+      value: 'Sumiran Chauhan',
+      href: 'https://www.linkedin.com/in/sumiran-chauhan-ab876b324/',
     },
     {
       icon: <GithubIcon className="w-5 h-5 text-zinc-300" />,
       label: 'GitHub',
-      value: 'sumay1913',
-      href: 'https://github.com/sumay1913',
+      value: 'Sumiran1913',
+      href: 'https://github.com/Sumiran1913',
     },
     {
       icon: <MapPin className="w-5 h-5 text-emerald-400" />,

@@ -6,7 +6,7 @@ const CustomCursor = () => {
   const [isHovered, setIsHovered] = useState(false);
   const [hoverType, setHoverType] = useState('default'); // 'default', 'link', 'magnetic'
   const [isVisible, setIsVisible] = useState(false);
-  const [isMobile, setIsMobile] = useState(true);
+  const [isMobile, setIsMobile] = useState(false);
   
   const mousePosRef = useRef({ x: -100, y: -100 });
   const magneticTargetRef = useRef(null);
@@ -44,13 +44,13 @@ const CustomCursor = () => {
       constructor(x, y) {
         this.x = x;
         this.y = y;
-        this.size = Math.random() * 28 + 14; // size 4 to 12
+        this.size = Math.random() * 12 + 6; // size 4 to 12
         this.speedX = (Math.random() - 0.5) * 1.5;
         this.speedY = (Math.random() - 0.5) * 1.5;
-        this.opacity = 0.25;
+        this.opacity = 0.55;
         // Cyan and Violet glow colors
         this.color = Math.random() > 0.5 ? 'rgba(139, 92, 246, ' : 'rgba(34, 211, 238, ';
-        this.decay = Math.random() * 0.008 + 0.004;
+        this.decay = Math.random() * 0.004 + 0.001;
       }
       update() {
         this.x += this.speedX;
@@ -61,7 +61,7 @@ const CustomCursor = () => {
       draw() {
         ctx.save();
         ctx.globalAlpha = this.opacity;
-        ctx.shadowBlur = 60;
+        ctx.shadowBlur = 35;
         ctx.shadowColor = this.color.replace(', ', ')');
         ctx.fillStyle = this.color + this.opacity + ')';
         ctx.beginPath();
@@ -125,10 +125,9 @@ const CustomCursor = () => {
       }
 
       // Spawn particles
-      if (Math.random() > 0.4) {
-        particles.push(new Particle(clientX, clientY));
-      }
-
+     for (let i = 0; i < 2; i++) {
+  particles.push(new Particle(clientX, clientY));
+}
       if (!isVisible) setIsVisible(true);
     };
 
@@ -177,7 +176,7 @@ const CustomCursor = () => {
     };
   }, [cursorX, cursorY, isVisible]);
 
-  if (isMobile) return null;
+  // if (isMobile) return null;
 
   return (
     <>
@@ -191,7 +190,7 @@ const CustomCursor = () => {
             ? hoverType === 'magnetic'
               ? 'w-14 h-14 border-cyan-400 bg-cyan-400/5'
               : 'w-10 h-10 border-white bg-white mix-blend-difference scale-125'
-            : 'w-6 h-6 border-white/20 bg-transparent'
+            : 'w-6 h-6 border-cyan-400/60 shadow-[0_0_20px_rgba(34,211,238,0.6)] bg-transparent'
         }`}
         style={{
           x: cursorXSpring,
